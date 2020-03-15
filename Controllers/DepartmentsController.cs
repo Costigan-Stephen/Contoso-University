@@ -81,7 +81,11 @@ namespace ContosoUniversity.Controllers
                 return NotFound();
             }
 
-            var department = await _context.Departments.FindAsync(id);
+            var department = await _context.Departments
+                .Include(i => i.Administrator)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.DepartmentID == id);
+
             if (department == null)
             {
                 return NotFound();
@@ -205,7 +209,6 @@ namespace ContosoUniversity.Controllers
 
             return View(department);
         }
-
         // POST: Departments/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -5,8 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ContosoUniversity.Models;
-using ContosoUniversity.Data;
 using Microsoft.EntityFrameworkCore;
+using ContosoUniversity.Data;
 using ContosoUniversity.Models.SchoolViewModels;
 using System.Data.Common;
 
@@ -19,6 +19,11 @@ namespace ContosoUniversity.Controllers
         public HomeController(SchoolContext context)
         {
             _context = context;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
         }
 
         public async Task<ActionResult> About()
@@ -53,11 +58,6 @@ namespace ContosoUniversity.Controllers
                 conn.Close();
             }
             return View(groups);
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
 
         public IActionResult Privacy()
