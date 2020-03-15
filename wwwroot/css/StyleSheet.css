@@ -1,4 +1,6 @@
-﻿html {
+﻿@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+html {
     background: #f8f8f8;
 }
 
@@ -22,7 +24,7 @@ nav a:hover, footer a:hover {
 
 footer, footer .container {
     color: gray;
-    background-color: #1d1d1d;
+    background-color: #3d3d3d;
 }
 
 .notes{
@@ -39,4 +41,12 @@ footer, footer .container {
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-areas: "area1   area2   area3";
     grid-row-gap: 15px;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+}
+
+img col-md-12 {
+    width: 500px;
 }
